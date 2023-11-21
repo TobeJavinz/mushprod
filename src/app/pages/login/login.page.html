@@ -1,0 +1,48 @@
+<ion-content [fullscreen]="true">
+  <ion-img class="pic" src="/assets/logo.png" alt="Help sha"></ion-img>
+
+  <h1>Sign in</h1>
+  <p class="par">Please enter your credentials</p>
+
+  <form [formGroup]="loginForm">
+    <div class="ion-padding">
+      <ion-item>
+        <ion-icon name="mail-outline" class="iconvalue"></ion-icon>
+        <ion-input type="email" formControlName="email" placeholder="email" class="input"></ion-input>
+      </ion-item>
+      <div *ngIf="loginForm.controls?.['email'].touched && loginForm.controls?.['email'].invalid">
+        <ion-text color="danger" *ngIf="errorControl['email'].errors?.['required']">
+          email is required
+        </ion-text>
+        <ion-text color="danger" *ngIf="errorControl['email'].errors?.['pattern']">
+          email should be valid
+        </ion-text>
+      </div>
+
+      <ion-item class="password-outline">
+        <ion-icon name="lock-closed-outline" class="iconvalue"></ion-icon>
+        <ion-input formControlName="password" placeholder="password" class="input" type="password"></ion-input>
+      </ion-item>
+      <div *ngIf="this.loginForm.controls?.['password'].touched && this.loginForm.controls?.['password'].invalid">
+        <ion-text color="danger" *ngIf="errorControl['password'].errors?.['required']">
+          password is required
+        </ion-text>
+
+      </div>
+
+      <div class="forgot-password">
+        <a [routerLink]="['/reset']" class="fpass">Forgot password?</a>
+      </div>
+
+      <div class="btn">
+        <ion-button (click)="login()">Login</ion-button>
+      </div>
+
+      <!-- <div>
+        <p class="new-member">Don't have an account?</p>
+        <a [routerLink]="['/signup']" class="sign-up">Signup</a>
+      </div> -->
+
+    </div>
+  </form>
+</ion-content>

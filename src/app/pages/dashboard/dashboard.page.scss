@@ -1,0 +1,96 @@
+ion-card {
+    margin-top: -13px;
+    margin-left: -2px;
+    margin-right: -2px;
+    --background: #CEDDE5;
+    color: rgb(6, 6, 6);
+    height: 200px;
+    border-radius: 20px;
+}
+
+
+ion-card-title {
+    margin-top: 20px;
+    font-size: 35px;
+    margin-left: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+
+}
+
+//date and sun
+.date {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    color: #040404;
+    font-size: 25px;
+    font-weight: 500;
+    justify-content: center;
+}
+
+.sunny {
+    margin-right: 10px;
+    color: #428CFF;
+}
+
+.div{
+    margin-top: 25px;
+}
+
+//cards
+.head1 {
+    --background: #CEDDE5;
+    display: flex;
+    color: #001E45;
+    margin-top: 25px;
+    height: 80px;
+    border-radius: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+//card descriptions
+.sub1 {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+//card icons
+.icon {
+    font-size: 25px;
+    color: #428CFF;
+}
+
+
+
+//temp
+.tempdescription {
+    font-size: 25px;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+//humidity
+.humidescription {
+    font-size: 25px;
+    margin-left: 75px;
+    font-weight: 500;
+}
+
+//harvest
+.harvestdescription {
+    font-size: 25px;
+    margin-left: 30px;
+    font-weight: 500;
+}
+
+//bags
+.bagsdescription {
+    font-size: 25px;
+    margin-left: 73px;
+    font-weight: 500;
+}
+
+
+

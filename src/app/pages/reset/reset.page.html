@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true">
+  
+  <ion-icon name="arrow-back-outline" class="back" [routerLink]="['/login']" ></ion-icon>
+
+  <ion-img class="pic"
+  src="/assets/logo.png"
+  alt="Help sha"
+  ></ion-img>
+
+  <h1>Reset Password</h1>
+  <p class="par">Enter your email to recieve a link to reset your password.</p>
+
+
+  
+
+  <div class="space">
+    <ion-label class="name">Email</ion-label>
+    <ion-item lines="none" class="values1">
+      <ion-input placeholder="Enter your email" type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+  </div>
+
+ 
+  <div>
+    <ion-row class="ion-padding-top">
+      <ion-col>
+        <ion-button class="cancel" [routerLink]="['/login']">Cancel</ion-button>
+      </ion-col>
+
+      <ion-col>
+        <ion-button class="save" (click)="resetPassword()">Save</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Settings</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="functions">
+    <ion-list lines="none" (click)="changepass()">
+      <ion-item>
+        <ion-label>About Us</ion-label> 
+        <ion-icon name="chevron-forward" class="btn-profile" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+    
+    <ion-list lines="none" (click)="help()">
+      <ion-item>
+        <ion-label>Help</ion-label> 
+        <ion-icon name="chevron-forward" class="btn-profile" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+ 
+    
+
+    <ion-list lines="none" (click)="logout()">
+      <ion-item>
+        <ion-label >Logout</ion-label> 
+        <ion-icon name="log-in-outline" class="btn-profile" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

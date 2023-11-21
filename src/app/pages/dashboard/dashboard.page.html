@@ -1,0 +1,89 @@
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Dashboard</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="date">
+      <ion-icon name="sunny" class="sunny"></ion-icon> {{ currentDate | date:'mediumDate' }}
+    </ion-card-content>
+  </ion-card>
+  
+  <div class="div">
+    <!-- temperature  -->
+    <ion-card class="head1">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="auto">
+              <ion-icon class="icon" name="thermometer-outline"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <p class="sub1">Temperature</p>
+            </ion-col>
+            <ion-col size="auto" *ngIf="(temperature$ | async) as latestData;">
+              <p class="tempdescription">{{ temperature$ | async }}°C</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+
+    <!-- humidity -->
+    <ion-card class="head1">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="auto">
+              <ion-icon class="icon" name="water"></ion-icon>
+            </ion-col>
+            <ion-col size="auto">
+              <p class="sub1">Humidity</p>
+            </ion-col>
+            <ion-col size="auto" *ngIf="(humidity$ | async) as latestData;">
+              <p class="humidescription">{{ humidity$ | async }}%</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="head1">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="auto">
+              <ion-icon class="icon" name="analytics-outline"></ion-icon>
+            </ion-col>
+            <ion-col size="auto">
+              <p class="sub1"> Latest Harvest</p>
+              <!-- <p class="harvestdescription">{{ date_harvested$ | async }}</p> -->
+            </ion-col>
+            <ion-col size="auto">
+              <p class="harvestdescription">{{ totalGrams }}g</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="head1">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="auto">
+              <ion-icon class="icon" name="bag-outline"></ion-icon>
+            </ion-col>
+            <ion-col size="auto">
+              <p class="sub1">Total Bags</p>
+            </ion-col>
+            <ion-col size="auto">
+              <p class="bagsdescription">{{ totalQuantity }}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

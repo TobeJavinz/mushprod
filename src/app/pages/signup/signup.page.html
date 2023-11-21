@@ -1,0 +1,65 @@
+<ion-content [fullscreen]="true">
+ 
+  <ion-img class="pic"
+  src="/assets/logo.png"
+  alt="Help sha"
+  ></ion-img>
+
+  <div>
+    <h1>Signup</h1>
+    <p class="par">Sign up new member</p>
+  </div>
+  
+  <form [formGroup]="regForm">
+    <div>
+      <ion-item>
+        <ion-icon name="person-outline" class="icon-color"></ion-icon>
+        <ion-input formControlName="username" placeholder="full name" class="input"></ion-input>
+      </ion-item>
+      <div *ngIf="this.regForm.controls?.['username'].touched && this.regForm.controls?.['username'].invalid">
+        <ion-text color="danger" *ngIf="errorControl['username'].errors?.['required']">
+          username is required
+        </ion-text>
+      </div>
+
+      <ion-item>
+        <ion-icon name="mail-outline" class="icon-color"></ion-icon>
+        <ion-input formControlName="email" placeholder="email" class="input"></ion-input>
+      </ion-item>
+      <div *ngIf="this.regForm.controls?.['email'].touched && this.regForm.controls?.['email'].invalid">
+        <ion-text color="danger" *ngIf="errorControl['email'].errors?.['required']">
+          email is required
+        </ion-text>
+        <ion-text color="danger" *ngIf="errorControl['email'].errors?.['pattern']">
+          email should be valid
+        </ion-text>
+      </div>
+     
+      <ion-item>
+        <ion-icon name="lock-closed-outline" class="icon-color"></ion-icon>
+        <ion-input formControlName="password" placeholder="password" class="input" type="password" ></ion-input>
+      </ion-item>
+      <div *ngIf="this.regForm.controls?.['password'].touched && this.regForm.controls?.['password'].invalid">
+        <ion-text color="danger" *ngIf="errorControl['password'].errors?.['required']">
+          password is required
+        </ion-text>
+        <ion-text color="danger" *ngIf="errorControl['password'].errors?.['pattern']">
+          Password must have at least 8 or more characters
+        </ion-text>
+      </div>
+       
+      <div class="btn">
+        <ion-button (click)="signUP()" >Sign Up</ion-button>
+      </div>
+      
+
+      <div>
+       <p class="already-member">already a member?</p>
+       <a [routerLink]="['/login']" class="login">Log in Now</a>
+      </div>
+
+     
+
+    </div>
+  </form>
+</ion-content>

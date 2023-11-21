@@ -1,0 +1,65 @@
+*{
+    margin: 3% 5% 3% 6%;
+}
+.pic{
+    margin-top: -80px;
+}
+
+.back{
+    margin-top: 20%;
+    margin-left: 30px;
+    width: 35px;
+    height: 35px;
+    color: #38B6FF;
+}
+
+h1{
+    margin-top: -100px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.par{
+    margin-top: 15px;
+    color: #939fab;
+    font-weight: 400;
+    font-size: 15px;
+    margin-left: 80px;
+}
+.name{
+    font-weight: bolder;
+
+}
+
+.values1{
+    --background: #D0EDFE;
+    display: flex ;
+    align-items: center;
+    height: 50px;
+    width: 95%;
+}
+
+ion-button.cancel{
+    --background: rgb(255, 255, 255);
+    color: black;
+    font-weight: bold;
+    border: 1px solid;
+    height: 45px;
+    width: 100px;
+    border-radius: 5px;
+
+}
+
+.save{
+    --background: #38B6FF;
+    font-weight: bold;
+    border-radius: 30px;
+    height: 45px;
+    width: 100px;
+}
+.space{
+    margin-top: 30px;
+}

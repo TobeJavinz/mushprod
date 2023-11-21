@@ -1,0 +1,7 @@
+{
+  "name": "mushprod",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

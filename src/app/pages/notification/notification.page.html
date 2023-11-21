@@ -1,0 +1,21 @@
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Notification</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
+
+  
+
+  <div class="content">
+    <ion-list lines="none">
+      <ion-label class="status">Notifications</ion-label>
+      <ion-item *ngFor="let notifications of notifications" (click)="openNotif(notifications)"
+        class="values1">{{notifications.alertTitle}} !!</ion-item>
+    </ion-list>
+  </div>
+</ion-content>

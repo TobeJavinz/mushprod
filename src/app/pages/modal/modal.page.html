@@ -1,0 +1,12 @@
+<ion-content [fullscreen]="true">
+
+  <div *ngIf="notifications">
+
+    <p class="title"> {{notifications.alertTitle}}</p>
+    <p class="message"> {{notifications.alertMessage}}</p>
+    <p class="temp"> Temperature: {{notifications.temperature}}°C</p>
+    <p class="humid"> Humidity: {{notifications.humidity}}%</p>
+  </div>
+
+
+</ion-content>

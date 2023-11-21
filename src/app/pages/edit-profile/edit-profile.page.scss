@@ -1,0 +1,81 @@
+*{
+    margin: 3% 5% 3% 6%;
+ 
+    
+}
+
+.values1{
+    --background: #D0EDFE;
+    display: flex ;
+    align-items: center;
+    height: 50px;
+    width: 95%;
+}
+
+.values2{
+    --background: #D0EDFE;
+    display: flex ;
+    align-items: center;
+    height: 50px;
+    width: 95%;
+}
+ion-input{
+    margin-left: 10px;
+}
+
+.try{
+    margin: 5px;
+    padding: 5px;
+}
+
+.back{
+    margin-top: 20%;
+    margin-left: 30px;
+    width: 35px;
+    height: 35px;
+    color: #38B6FF;
+}
+
+h1{
+    margin-top: 8%;
+    margin-left: 40px;
+    font-weight: bold;
+
+}
+
+.CD{
+    margin-top: 8%;
+}
+
+.changedp{
+    color: #38B6FF;
+}
+
+.textcd{
+    font-size: 18px;
+}
+
+.space{
+    margin-top: 40px;
+}
+
+.name{
+    font-weight: bolder;
+}
+
+.cancel{
+    --background: red;
+    font-weight: bold;
+    height: 45px;
+    width: 100px;
+    border-radius: 10px;
+
+}
+
+.save{
+    --background: #38B6FF;
+    font-weight: bold;
+    border-radius: 30px;
+    height: 45px;
+    width: 100px;
+}

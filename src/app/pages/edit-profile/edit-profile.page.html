@@ -1,0 +1,39 @@
+
+<ion-content [fullscreen]="true">
+
+  <ion-icon name="arrow-back-outline" class="back" (click)="back()" ></ion-icon>
+
+  <h1>Edit Profile</h1>
+  
+  <ion-item lines="none" class="CD">
+    <ion-icon aria-hidden="true" name="person-add-outline" class="changedp"></ion-icon>
+    <ion-label class="textcd">Change Profile Picture</ion-label>
+  </ion-item>
+  
+<!-- Valuess -->
+  <div class="space">
+    <ion-label class="name">Name</ion-label>
+    <ion-item lines="none" class="values1">
+      <ion-input placeholder="Enter your new name" ></ion-input>
+    </ion-item>
+    <br>
+    <ion-label class="name">Email</ion-label>
+    <ion-item lines="none" class="values2">
+      <ion-input type="email" placeholder="Enter your new email"></ion-input>
+    </ion-item>
+  </div>
+ 
+  <!-- Buttons -->
+  <div>
+    <ion-row class="ion-padding-top">
+      <ion-col>
+        <ion-button class="cancel">Cancel</ion-button>
+      </ion-col>
+
+      <ion-col>
+        <ion-button class="save">Save</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+ 
+</ion-content>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { ModalPage } from '../modal/modal.page';
+import { orderBy } from 'firebase/firestore';
 
 @Component({
   selector: 'app-notification',
@@ -13,11 +14,13 @@ export class NotificationPage implements OnInit {
 
   constructor( private dataService: DataService, private modalCtrl: ModalController) { 
     
-    this.dataService.getNotif().subscribe(res => {
+    this.dataService.getNotif1().subscribe(res => {
       console.log('Notifications:', res); 
       this.notifications = res;
+      this.notifications = res.sort((a: any, b: any) => b.date.valueOf() - a.date.valueOf());
     });
   }
+   
 
   async openNotif(notifications){
     const modal = await this.modalCtrl.create({

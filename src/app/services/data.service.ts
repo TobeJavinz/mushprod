@@ -12,11 +12,11 @@ export interface Notif {
   id?: string;
   Title: string;
   alertMessage: string;
-  date: string;
+  date: Timestamp;
   humidity: string;
   temperature: string;
 }
-
+ 
 
 export interface TotalHarvest {
   id?: string;
@@ -53,21 +53,42 @@ export interface test {
 export class DataService {
 
   constructor(private firestore: Firestore,) {
+    
   }
 
 
-  // notification
-  getNotif(): Observable<Notif[]> {
+
+
+  getNotif1(): Observable<Notif[]> {
     const notifRef = collection(this.firestore, 'user/123456/notifications');
-    return collectionData(notifRef, { idField: 'id' }) as Observable<Notif[]>;
+    return collectionData(notifRef, { idField: 'id' }).pipe(
+      map((notifArray: Notif[]) => {
+        // Update each notif to include formattedDate property
+        return notifArray.map((notifications) => ({
+          ...notifications,
+          formattedDate: this.formatDate(notifications.date),
+        }));
+      })
+    );
   }
+
+ formatDate(date: Timestamp): string {
+  const dateObject = new Date(date.seconds * 1000); // Convert seconds to milliseconds
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+  };
+
+  return dateObject.toLocaleDateString('en-US', options);
+}
 
   getNotifById(id): Observable<Notif> {
     const noteDocRef = doc(this.firestore, `user/123456/notifications/${id}`);
     return docData(noteDocRef, { idField: 'id' }) as Observable<Notif>;
   }
 
-
+  
   //total harvest
   getTotalharvest(): Observable<TotalHarvest[]> {
     const notifRef = collection(this.firestore, 'user/123456/harvest record');
@@ -119,7 +140,9 @@ export class DataService {
   //     })
   //   );
   // }
-  
+
+
+    
   async allHarvestedGrams(): Promise<number> {
     const userDocRef = doc(this.firestore, 'user', '123456');
     const batchCollectionRef = collection(userDocRef, 'batch');

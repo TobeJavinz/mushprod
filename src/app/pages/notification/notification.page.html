@@ -15,7 +15,8 @@
     <ion-list lines="none">
       <ion-label class="status">Notifications</ion-label>
       <ion-item *ngFor="let notifications of notifications" (click)="openNotif(notifications)"
-        class="values1">{{notifications.alertTitle}} !!</ion-item>
+        class="values1">{{ notifications.formattedDate }} {{notifications.alertTitle}}  </ion-item>
+    
     </ion-list>
   </div>
 </ion-content>

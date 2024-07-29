@@ -91,32 +91,70 @@ export class DashboardPage implements OnInit {
         this.humidity$ = of(lastEntry.Humd);
 
 
-        if (lastEntry.Temp > 30) {
-          this.scheduleNotification();
-        }
 
-        if (lastEntry.Humd > 90) {
-          this.scheduleNotification2();
-        }
+        this.scheduleNotification(lastEntry.Temp, lastEntry.Humd);
 
       }
     }
     );
   }
 
+
   //temp Notification
-  async scheduleNotification() {
+  async scheduleNotification(tempValue: number, humdValue: number) {
+
+    let temp: number = tempValue;
+    let humd: number = humdValue;
+    let alertTitleTemp: string = '';
+    let alertTitleHumd: string = '';
+    let alertTitle: string = '';
+    let alertMessagetemp: string = '';
+    let alertMessagehumid: string = '';
+    let alertMessage = '';
+    if (24 >= tempValue) {
+      alertTitleTemp = 'Low Temperature'
+      alertMessagetemp = 'Low temperature alert: The temperature has dropped to ' + temp + '°C, which is below the recommended threshold.'
+    } else if (29 <= tempValue) {
+      alertTitleTemp = 'High Temperature'
+      alertMessagetemp = 'High temperature alert: The temperature has reached ' + temp + '°C, which is above the recommended threshold.'
+    }
+    if (85 >= humdValue) {
+      alertTitleHumd = 'Low Humidity'
+      alertMessagehumid = 'Low humidity alert: The humidity level has dropped to ' + humd + '%, which is below the recommended threshold.'
+    } else if (95 <= humdValue) {
+      alertTitleHumd = 'High Humidity'
+      alertMessagehumid = 'High humidity alert: The humidity level has reached ' + humd + '%, which is above the recommended threshold.'
+    }
+
+    if (alertMessagetemp && alertMessagehumid) {
+      alertMessage = `${alertMessagetemp} & ${alertMessagehumid}`;
+
+    } else if (alertMessagetemp) {
+      alertMessage = alertMessagetemp;
+    } else if (alertMessagehumid) {
+      alertMessage = alertMessagehumid;
+    }
+    if (alertTitleTemp && alertTitleHumd) {
+      alertTitle = `${alertTitleTemp} & ${alertTitleHumd}`;
+
+    } else if (alertTitleTemp) {
+      alertTitle = alertTitleTemp;
+    } else if (alertTitleHumd) {
+      alertTitle = alertTitleHumd;
+    }
+
+
     let options: ScheduleOptions = {
       notifications: [
         {
           id: 111,
-          title: "High Temperature",
-          body: "Attention! Init na kaayo goys",
-          largeBody: "Hoy Init na kaayo gago ang mushroom",
-          summaryText: "Test"
+          title: alertTitle,
+          body: alertMessage
         }
       ]
+
     }
+    console.log(options)
 
     try {
       await LocalNotifications.schedule(options);
@@ -156,6 +194,7 @@ export class DashboardPage implements OnInit {
 
   ngOnInit() {
     this.fetchData();
+
   }
 
   async fetchData() {

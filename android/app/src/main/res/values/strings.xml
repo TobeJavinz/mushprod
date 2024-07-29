@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Mushprod App</string>
-    <string name="title_activity_main">Mushprod App</string>
-    <string name="package_name">com.betapeak.mushprod</string>
-    <string name="custom_url_scheme">com.betapeak.mushprod</string>
-</resources>

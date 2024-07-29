@@ -17,7 +17,7 @@ export class NotificationPage implements OnInit {
     this.dataService.getNotif1().subscribe(res => {
       console.log('Notifications:', res); 
       this.notifications = res;
-      this.notifications = res.sort((a: any, b: any) => b.date.valueOf() - a.date.valueOf());
+      this.notifications = res.sort((a: any, b: any) => b.date.valueOf() - a.date).slice(0,10);
     });
   }
    
